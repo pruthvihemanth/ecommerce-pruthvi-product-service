@@ -10,7 +10,8 @@
 #
 # For more support on how to run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke-kustomize
 
-# === service account - ecommerce-service-account@ecommerce-pruthvi.iam.gserviceaccount.com
+# === service account - ecommerce-pruthvi-sa@ecommerce-pruthvi-hemanth.iam.gserviceaccount.com
+# == project id 993068694107
 
 name: Build and Deploy to GKE
 
@@ -51,8 +52,8 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
        # token_format: 'access_token'
-        workload_identity_provider: 'projects/1093565520154/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: 'pruthvi-service-account@ecommerce-pruthvi.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/993068694107/locations/global/workloadIdentityPools/ecommerce-pruthvi-idpool/providers/ecommerce-pruthvi-wlprovider'
+        service_account: 'ecommerce-pruthvi-sa@ecommerce-pruthvi-hemanth.iam.gserviceaccount.com'
 
 
     # - name: Docker configuration
