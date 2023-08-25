@@ -98,16 +98,3 @@ jobs:
          description: 'new changes'
          images: 'app=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.APP }}/${{ env.APP }}:${{ github.sha }}'
          
-    - name: 'Report Cloud Deploy release'
-         run: |-
-           echo "Created release ${{ steps.release.outputs.name }} "
-           echo "Release link ${{ steps.release.outputs.link }} " 
-
-    # Slack Integration  
-    - name: Set up Slack Notifications
-      uses: act10ns/slack@v1
-      with:
-        status: ${{ job.status }}
-        steps: ${{ toJson(steps) }} 
-        channel: '#e-commerce-backend-deployments'
-      if: always()    
